@@ -1,0 +1,5 @@
+Debugging note
+
+A validated event stores Timestamp as a datetime.time object. When I checked JSON serialization, the standard json encoder could not serialize that Python object directly. The solution was to keep the supplied JSON export in HH:MM string form and use format_event() whenever a validated event needs to be converted back to a JSON-safe dictionary.
+
+This keeps timestamp validation strict inside Python while keeping the external JSON representation simple.

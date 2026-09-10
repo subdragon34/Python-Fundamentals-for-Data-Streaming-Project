@@ -1,0 +1,10 @@
+{
+  "accepted": false,
+  "validation_errors": [
+    "Timestamp must use a valid HH:MM time",
+    "Passengers must be a non-negative integer",
+    "Speed_kmh must be between 0 and 120",
+    "Status must be ON_ROUTE or STOPPED"
+  ],
+  "occupancy_category": null
+}

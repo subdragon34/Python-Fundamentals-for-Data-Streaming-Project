@@ -1,0 +1,40 @@
+Validated shuttle events
+------------------------------------------------------------------------
+01 | 08:00 | B01 | 18 passengers | 31 km/h | ON_ROUTE
+02 | 08:01 | B02 | 22 passengers | 28 km/h | ON_ROUTE
+03 | 08:02 | B01 | 21 passengers | 29 km/h | ON_ROUTE
+04 | 08:03 | B02 | 25 passengers | 27 km/h | ON_ROUTE
+05 | 08:04 | B01 | 24 passengers | 0 km/h | STOPPED
+06 | 08:05 | B02 | 26 passengers | 30 km/h | ON_ROUTE
+07 | 08:06 | B01 | 23 passengers | 32 km/h | ON_ROUTE
+08 | 08:07 | B02 | 28 passengers | 26 km/h | ON_ROUTE
+09 | 08:08 | B01 | 27 passengers | 25 km/h | ON_ROUTE
+10 | 08:09 | B02 | 30 passengers | 24 km/h | ON_ROUTE
+
+Streaming simulation
+------------------------------------------------------------------------
+Event 01 | passengers=18 | speed=31 | status=ON_ROUTE | processed=Yes | reason=Valid event
+Event 02 | passengers=22 | speed=28 | status=ON_ROUTE | processed=Yes | reason=Valid event
+Event 03 | passengers=21 | speed=29 | status=ON_ROUTE | processed=Yes | reason=Valid event
+Event 04 | passengers=25 | speed=27 | status=ON_ROUTE | processed=Yes | reason=Valid event
+Event 05 | passengers=24 | speed=0 | status=STOPPED | processed=Yes | reason=Valid event
+Event 06 | passengers=26 | speed=30 | status=ON_ROUTE | processed=Yes | reason=Valid event
+Event 07 | passengers=23 | speed=32 | status=ON_ROUTE | processed=Yes | reason=Valid event
+Event 08 | passengers=28 | speed=26 | status=ON_ROUTE | processed=Yes | reason=Valid event
+Event 09 | passengers=27 | speed=25 | status=ON_ROUTE | processed=Yes | reason=Valid event
+Event 10 | passengers=30 | speed=24 | status=ON_ROUTE | processed=Yes | reason=Valid event
+
+Analysis
+------------------------------------------------------------------------
+Average passenger count: 24.4
+Maximum passenger count: 30
+STOPPED events: 1
+Busiest minute: 08:09
+Busiest bus: B02
+Spreadsheet runtime warmup failed during python startup
+Traceback (most recent call last):
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/patches/warm_spreadsheet_runtime_on_startup.py", line 26, in warm_spreadsheet_runtime_on_startup
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/spreadsheet_warmup.py", line 772, in warm_spreadsheet_runtime
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/rpc/connection.py", line 37, in get_or_create_client
+  File "/tmp/tmp.L2TH2Y5coc/artifact_tool_v2-2.8.22/artifact_tool/rpc/daemon.py", line 124, in start_daemon
+TimeoutError: Timed out waiting for artifact tool daemon socket. Set ARTIFACT_TOOL_RPC_DAEMON_STARTUP_TIMEOUT_S=<seconds> to increase the limit.
