@@ -108,4 +108,3 @@ The analysis is also written as a single pass over the generator. This is closer
 - Busiest minute: `08:09`
 - Busiest bus: `B02`
 
-Before submission, fill in the remaining personal fields in the report: Student ID, exact group/cohort, instructor, repository link, submission date, signature, and date.
