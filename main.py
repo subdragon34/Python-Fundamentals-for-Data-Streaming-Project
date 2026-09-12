@@ -206,27 +206,16 @@ def event_generator(events):
         yield validated
 
 
-def process_stream(events):
-    for event_number, raw_event in enumerate(events, start=1):
-        try:
-            validated = validate_event(raw_event)
-            yield {
-                "Event": event_number,
-                "Passengers": validated["Passengers"],
-                "Speed": validated["Speed_kmh"],
-                "Status": validated["Status"],
-                "Processed": "Yes",
-                "Reason": "Valid event"
-            }
-        except EventValidationError as error:
-            yield {
-                "Event": event_number,
-                "Passengers": raw_event.get("Passengers"),
-                "Speed": raw_event.get("Speed_kmh"),
-                "Status": raw_event.get("Status"),
-                "Processed": "No",
-                "Reason": "; ".join(error.errors)
-            }
+def process_stream(stream):
+    for event_number, event in enumerate(stream, start=1):
+        yield {
+            "Event": event_number,
+            "Passengers": event["Passengers"],
+            "Speed": event["Speed_kmh"],
+            "Status": event["Status"],
+            "Processed": "Yes",
+            "Reason": "Valid event"
+        }
 
 
 def occupancy_category(passengers):
@@ -290,7 +279,7 @@ if __name__ == "__main__":
 
     print("\nStreaming simulation")
     print("-" * 72)
-    for result in process_stream(EVENTS):
+    for result in process_stream(event_generator(EVENTS)):
         print(
             f'Event {result["Event"]:02d} | passengers={result["Passengers"]} | '
             f'speed={result["Speed"]} | status={result["Status"]} | '
